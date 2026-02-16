@@ -1,0 +1,932 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp Chúc Tết 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red-1: #6e0000;
+      --red-2: #8f0b12;
+      --red-3: #b0151d;
+      --gold-1: #f4d06f;
+      --gold-2: #ffd978;
+      --gold-3: #fff2bf;
+      --ink: #fff8e8;
+      --shadow: rgba(35, 3, 3, 0.45);
+      --rx: 0deg;
+      --ry: 0deg;
+      --mx: 50%;
+      --my: 50%;
+      --lift: 0px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem;
+      font-family: "Be Vietnam Pro", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 15%, #f5aa3a 0%, transparent 24%),
+        radial-gradient(circle at 85% 90%, #ff5f5f 0%, transparent 30%),
+        linear-gradient(135deg, #2b0103 0%, #4f0104 45%, #64070a 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 28vw;
+      height: 28vw;
+      border-radius: 50%;
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background: rgba(255, 188, 79, 0.32);
+      top: -9vw;
+      left: -9vw;
+    }
+
+    body::after {
+      background: rgba(255, 97, 70, 0.28);
+      bottom: -11vw;
+      right: -7vw;
+    }
+
+    .intro-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0;
+      background:
+        radial-gradient(circle at 25% 18%, rgba(255, 224, 148, 0.65), transparent 35%),
+        radial-gradient(circle at 78% 84%, rgba(255, 110, 82, 0.45), transparent 32%),
+        linear-gradient(145deg, #2a0002, #6e0000 60%, #320005);
+    }
+
+    body.animate-in .intro-wipe {
+      animation: wipeOpen 1200ms cubic-bezier(0.3, 0.82, 0.2, 1) both;
+    }
+
+    @keyframes wipeOpen {
+      0% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+      }
+      65% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+      }
+      100% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+      }
+    }
+
+    .fireworks {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .petal {
+      position: absolute;
+      top: -8vh;
+      width: 11px;
+      height: 11px;
+      border-radius: 65% 35% 55% 45%;
+      background: linear-gradient(135deg, #ffd982, #ff9f7e 75%);
+      opacity: 0.85;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(560deg);
+      }
+    }
+
+    .scene {
+      width: min(920px, 94vw);
+      perspective: 1400px;
+      position: relative;
+      z-index: 2;
+      transform-style: preserve-3d;
+    }
+
+    body.animate-in .scene {
+      animation: sceneReveal 980ms cubic-bezier(0.18, 0.8, 0.2, 1) both;
+    }
+
+    @keyframes sceneReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.94);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .card {
+      width: 100%;
+      position: relative;
+      background:
+        linear-gradient(170deg, rgba(255, 222, 136, 0.08), rgba(255, 222, 136, 0) 35%),
+        linear-gradient(135deg, var(--red-2), var(--red-1));
+      border: 2px solid rgba(255, 218, 123, 0.72);
+      border-radius: 30px;
+      box-shadow: 0 18px 50px var(--shadow);
+      padding: clamp(1.3rem, 2.5vw, 2.6rem);
+      overflow: hidden;
+      isolation: isolate;
+      transform-style: preserve-3d;
+      transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--lift));
+      transition: transform 220ms ease, box-shadow 220ms ease;
+      will-change: transform;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(255, 218, 123, 0.35);
+      border-radius: 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 242, 189, 0.33), transparent 34%);
+      opacity: 0.78;
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
+
+    .lantern {
+      position: absolute;
+      top: -8px;
+      width: 82px;
+      height: 102px;
+      border-radius: 44px;
+      background: linear-gradient(to bottom, #f7333f, #c30f16 85%);
+      border: 2px solid rgba(255, 223, 131, 0.8);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      transform-origin: 50% -20px;
+      animation: sway 4.2s ease-in-out infinite alternate;
+      z-index: 3;
+    }
+
+    .lantern::before {
+      content: "";
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      width: 2px;
+      height: 22px;
+      background: var(--gold-2);
+      transform: translateX(-50%);
+    }
+
+    .lantern::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      width: 4px;
+      height: 16px;
+      background: var(--gold-2);
+      transform: translateX(-50%);
+      border-radius: 4px;
+      box-shadow: -8px 3px 0 0 var(--gold-2), 8px 3px 0 0 var(--gold-2);
+    }
+
+    .lantern-left {
+      left: clamp(0.4rem, 2vw, 1.2rem);
+    }
+
+    .lantern-right {
+      right: clamp(0.4rem, 2vw, 1.2rem);
+      animation-delay: 0.6s;
+    }
+
+    @keyframes sway {
+      from {
+        transform: translateZ(95px) rotate(-6deg);
+      }
+      to {
+        transform: translateZ(95px) rotate(7deg);
+      }
+    }
+
+    .content {
+      text-align: center;
+      padding-inline: clamp(0.5rem, 2vw, 2.4rem);
+      transform-style: preserve-3d;
+      position: relative;
+      z-index: 2;
+    }
+
+    body.animate-in .content > * {
+      animation: contentReveal 760ms ease both;
+    }
+
+    body.animate-in .content > *:nth-child(1) { animation-delay: 240ms; }
+    body.animate-in .content > *:nth-child(2) { animation-delay: 310ms; }
+    body.animate-in .content > *:nth-child(3) { animation-delay: 390ms; }
+    body.animate-in .content > *:nth-child(4) { animation-delay: 470ms; }
+    body.animate-in .content > *:nth-child(5) { animation-delay: 550ms; }
+    body.animate-in .content > *:nth-child(6) { animation-delay: 640ms; }
+    body.animate-in .content > *:nth-child(7) { animation-delay: 730ms; }
+    body.animate-in .content > *:nth-child(8) { animation-delay: 810ms; }
+
+    @keyframes contentReveal {
+      0% {
+        opacity: 0;
+        filter: blur(7px);
+      }
+      100% {
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    .kicker {
+      margin: 0.4rem 0 0;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--gold-2);
+      font-weight: 700;
+      transform: translateZ(50px);
+    }
+
+    .title-main {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      margin: 0.25rem 0 0.6rem;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      color: #ffe39a;
+      line-height: 1.08;
+      text-shadow: none;
+      transform: none;
+      letter-spacing: 0.01em;
+    }
+
+    .subtitle {
+      margin: 0 auto 1.15rem;
+      max-width: 620px;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.6;
+      color: #ffeec7;
+      transform: translateZ(62px);
+    }
+
+    .divider {
+      width: min(460px, 95%);
+      height: 2px;
+      margin: 0.8rem auto 1.4rem;
+      background: linear-gradient(90deg, transparent, var(--gold-1), transparent);
+      transform: translateZ(35px);
+    }
+
+    .poem {
+      margin: 0 auto 1.25rem;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.25rem;
+      font-size: clamp(1.02rem, 2.2vw, 1.22rem);
+      color: #fff4d9;
+      transform: translateZ(74px);
+    }
+
+    .poem li {
+      line-height: 1.6;
+      text-wrap: balance;
+    }
+
+    .wish-box {
+      margin: 1.2rem auto 0;
+      width: min(620px, 100%);
+      background: rgba(255, 250, 230, 0.07);
+      border: 1px solid rgba(255, 220, 137, 0.48);
+      border-radius: 16px;
+      padding: 0.95rem 1rem;
+      min-height: 64px;
+      display: grid;
+      place-items: center;
+      backdrop-filter: blur(2px);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transform: translateZ(88px) rotateX(4deg);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 245, 212, 0.22),
+        0 14px 30px rgba(0, 0, 0, 0.23);
+    }
+
+    .wish-box.wow {
+      animation: boxPop 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .wish-box::before {
+      content: "";
+      position: absolute;
+      inset: -35%;
+      background: linear-gradient(115deg, transparent 42%, rgba(255, 246, 214, 0.55) 50%, transparent 58%);
+      transform: translateX(-68%);
+      animation: sheen 5.1s ease-in-out infinite;
+    }
+
+    #dynamicWish {
+      margin: 0;
+      font-weight: 500;
+      color: #fff6dd;
+      transition: transform 180ms ease, opacity 180ms ease;
+      position: relative;
+      z-index: 1;
+      transform: translateZ(14px);
+      text-shadow: 0 5px 10px rgba(0, 0, 0, 0.24);
+    }
+
+    #dynamicWish.pop {
+      transform: translateZ(18px) scale(1.06);
+      opacity: 0.85;
+    }
+
+    @keyframes sheen {
+      0%,
+      82%,
+      100% {
+        transform: translateX(-68%);
+      }
+      41% {
+        transform: translateX(78%);
+      }
+    }
+
+    @keyframes boxPop {
+      0% {
+        transform: translateZ(88px) rotateX(4deg) scale(1);
+      }
+      48% {
+        transform: translateZ(104px) rotateX(-1deg) scale(1.035);
+      }
+      100% {
+        transform: translateZ(88px) rotateX(4deg) scale(1);
+      }
+    }
+
+    .actions {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      transform: translateZ(78px);
+    }
+
+    .wish-btn {
+      border: 1px solid rgba(255, 220, 137, 0.62);
+      background: linear-gradient(135deg, #f9d46a, #efb64f);
+      color: #4e0507;
+      font-weight: 700;
+      padding: 0.65rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 130ms ease, box-shadow 130ms ease;
+      font-family: inherit;
+    }
+
+    .wish-btn:hover {
+      transform: translateY(-2px) translateZ(8px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .from {
+      margin: 1.1rem 0 0;
+      font-size: 0.92rem;
+      color: #ffdca9;
+      letter-spacing: 0.03em;
+      transform: translateZ(52px);
+    }
+
+    .blossom {
+      position: absolute;
+      width: 88px;
+      aspect-ratio: 1;
+      opacity: 0.6;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.28));
+      animation: pulse 3.6s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .blossom::before,
+    .blossom::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 19%, #ffdf7e 11px, transparent 12px),
+        radial-gradient(circle at 50% 50%, #f6ac5f 14px, transparent 15px),
+        radial-gradient(circle at 28% 37%, #f6d991 18px, transparent 19px),
+        radial-gradient(circle at 72% 37%, #f6d991 18px, transparent 19px),
+        radial-gradient(circle at 32% 72%, #f6d991 18px, transparent 19px),
+        radial-gradient(circle at 68% 72%, #f6d991 18px, transparent 19px);
+    }
+
+    .blossom-1 {
+      left: -18px;
+      bottom: -24px;
+      transform: translateZ(42px);
+    }
+
+    .blossom-2 {
+      right: -16px;
+      top: 24%;
+      animation-delay: 0.9s;
+      transform: translateZ(42px) scale(0.8) rotate(18deg);
+      opacity: 0.5;
+    }
+
+    @keyframes pulse {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+
+      .card {
+        border-radius: 22px;
+      }
+
+      .lantern {
+        width: 58px;
+        height: 74px;
+      }
+
+      .subtitle {
+        margin-bottom: 1rem;
+      }
+
+      .wish-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .blossom {
+        width: 60px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .petal,
+      .lantern,
+      .blossom,
+      .wish-box::before {
+        animation: none !important;
+      }
+
+      .wish-box.wow {
+        animation: none !important;
+      }
+
+      .intro-wipe,
+      .fireworks {
+        display: none !important;
+      }
+
+      body.animate-in .scene,
+      body.animate-in .content > * {
+        animation: none !important;
+      }
+
+      .card {
+        transition: none !important;
+      }
+
+      .wish-btn,
+      #dynamicWish {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-wipe" aria-hidden="true"></div>
+  <canvas class="fireworks" id="fireworks" aria-hidden="true"></canvas>
+  <audio id="bgMusic" autoplay loop preload="auto" playsinline>
+    <source src="assets/van-su-nhu-y.mp3" type="audio/mpeg" />
+  </audio>
+  <div class="petals" aria-hidden="true" id="petals"></div>
+
+  <div class="scene" id="scene">
+    <main class="card" id="card" role="main">
+      <div class="lantern lantern-left" aria-hidden="true"></div>
+      <div class="lantern lantern-right" aria-hidden="true"></div>
+      <div class="blossom blossom-1" aria-hidden="true"></div>
+      <div class="blossom blossom-2" aria-hidden="true"></div>
+
+      <section class="content">
+        <p class="kicker">Xuân Bình An</p>
+        <h1 class="title-main">Chúc Mừng Năm Mới 2026</h1>
+        <p class="subtitle" id="subtitleText">
+          Kính chúc bạn một năm mới thật dịu dàng: có người để thương, có nhà để về,
+          và có thật nhiều khoảnh khắc bình yên để mỉm cười mỗi tối.
+        </p>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <ul class="poem" id="poemList" aria-label="Lời chúc Tết">
+          <li>Mong ngày mới luôn thơm mùi bếp ấm,</li>
+          <li>Bữa cơm nào cũng đủ mặt người thương,</li>
+          <li>Đường năm mới dẫu xa mà vẫn sáng,</li>
+          <li>Bình an theo bạn đến hết bốn phương.</li>
+        </ul>
+
+        <div class="wish-box" aria-live="polite">
+          <p id="dynamicWish">Chúc bạn luôn được yêu thương và có một nơi bình yên để trở về.</p>
+        </div>
+
+        <div class="actions">
+          <button class="wish-btn" id="wishBtn" type="button">Nhận lời chúc và pháo hoa</button>
+        </div>
+
+        <p class="from" id="fromText">Thương chúc bạn một năm thật ấm lòng.</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const wishProfiles = {
+      default: {
+        subtitle: "Kính chúc bạn một năm mới thật dịu dàng: có người để thương, có nhà để về, và có thật nhiều khoảnh khắc bình yên để mỉm cười mỗi tối.",
+        poem: [
+          "Mong ngày mới luôn thơm mùi bếp ấm,",
+          "Bữa cơm nào cũng đủ mặt người thương,",
+          "Đường năm mới dẫu xa mà vẫn sáng,",
+          "Bình an theo bạn đến hết bốn phương."
+        ],
+        initialWish: "Chúc bạn luôn được yêu thương và có một nơi bình yên để trở về.",
+        from: "Thương chúc bạn một năm thật ấm lòng.",
+        wishes: [
+          "Chúc bạn giữ được nụ cười hiền sau những ngày bận rộn.",
+          "Chúc ngôi nhà của bạn luôn sáng đèn, đầy tiếng cười và những cái ôm.",
+          "Chúc bạn đi qua mọi thử thách với trái tim vững vàng và nhẹ nhõm.",
+          "Chúc mỗi sáng thức dậy đều có một điều nhỏ bé khiến bạn thấy biết ơn.",
+          "Chúc người bạn thương luôn ở cạnh, cùng bạn đón đủ bốn mùa bình yên.",
+          "Chúc công việc hanh thông, nhưng tâm hồn vẫn có chỗ cho nghỉ ngơi.",
+          "Chúc năm mới mang đến cho bạn nhiều yêu thương hơn mong đợi."
+        ]
+      },
+      mylove: {
+        subtitle: "Năm mới đến, mong anh và em yêu vẫn nắm tay nhau đi qua mọi bận rộn, cùng giữ những điều nhỏ bé nhưng ấm áp cho nhau mỗi ngày.",
+        poem: [
+          "Mong nụ cười em yêu luôn trong trẻo,",
+          "Mỗi ngày qua đều dịu ngọt an lành,",
+          "Dẫu cuộc sống đôi khi nhiều gió ngược,",
+          "Vẫn bên nhau, tay ấm giữ tay mình."
+        ],
+        initialWish: "Chúc em yêu một năm mới bình an, được yêu nhiều và cười nhiều hơn hôm qua.",
+        from: "Gửi em yêu, trọn vẹn yêu thương.",
+        wishes: [
+          "Chúc em yêu luôn khỏe mạnh và ngủ thật ngon mỗi đêm.",
+          "Chúc chúng mình có thêm nhiều chuyến đi, nhiều bữa cơm và nhiều tiếng cười.",
+          "Chúc mọi điều chưa trọn vẹn của năm cũ sẽ hóa nhẹ tênh trong năm mới.",
+          "Chúc trái tim em yêu luôn bình yên, ngay cả trong những ngày bận nhất.",
+          "Chúc tình yêu của chúng mình ngày càng vững vàng và ấm áp.",
+          "Chúc em yêu luôn được yêu, được hiểu và được nâng niu như em xứng đáng.",
+          "Chúc năm mới của chúng mình có thật nhiều khoảnh khắc đáng nhớ bên nhau."
+        ]
+      },
+      dongnghiep: {
+        subtitle: "Chúc bạn một năm mới làm việc thuận lợi, hợp tác vui vẻ và cùng nhau gặt hái nhiều thành quả ý nghĩa.",
+        poem: [
+          "Chúc đồng nghiệp sáng tâm và vững chí,",
+          "Công việc trôi suôn sẻ mỗi ngày qua,",
+          "Team đoàn kết, sẻ chia điều tử tế,",
+          "Năm mới hanh thông, hạnh phúc đơm hoa."
+        ],
+        initialWish: "Chúc bạn năm mới công việc suôn sẻ, sức khỏe dồi dào và luôn giữ được năng lượng tích cực.",
+        from: "Trân trọng gửi đến đồng nghiệp thân quý.",
+        wishes: [
+          "Chúc bạn một năm mới làm việc hiệu quả và luôn gặp người hỗ trợ tốt.",
+          "Chúc các dự án của team đúng tiến độ, đúng chất lượng và nhiều dấu ấn.",
+          "Chúc bạn cân bằng được công việc và cuộc sống, làm hết mình nhưng không quá tải.",
+          "Chúc môi trường làm việc luôn tích cực, thẳng thắn và tôn trọng lẫn nhau.",
+          "Chúc bạn nhiều cơ hội phát triển, học thêm kỹ năng mới và thăng tiến vững vàng.",
+          "Chúc mỗi ngày đi làm đều có động lực, có niềm vui và có cảm hứng.",
+          "Chúc năm mới tài lộc đủ đầy, sức khỏe bền bỉ và mọi việc hanh thông."
+        ]
+      }
+    };
+
+    let wishes = [];
+
+    const wishBtn = document.getElementById("wishBtn");
+    const dynamicWish = document.getElementById("dynamicWish");
+    const subtitleText = document.getElementById("subtitleText");
+    const poemList = document.getElementById("poemList");
+    const fromText = document.getElementById("fromText");
+    const wishBox = document.querySelector(".wish-box");
+    const scene = document.getElementById("scene");
+    const card = document.getElementById("card");
+    const petalsWrap = document.getElementById("petals");
+    const bgMusic = document.getElementById("bgMusic");
+    const fireCanvas = document.getElementById("fireworks");
+    const fireCtx = fireCanvas ? fireCanvas.getContext("2d") : null;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const sparks = [];
+    let fwWidth = 0;
+    let fwHeight = 0;
+    let nextAutoBurst = 0;
+
+    function normalizeType(value) {
+      return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]/g, "");
+    }
+
+    function resolveWishType(value) {
+      const normalized = normalizeType(value);
+      if (["mylove", "lover", "nguoithuong", "nguoiyeu", "crush"].includes(normalized)) {
+        return "mylove";
+      }
+      if (["dongnghiep", "colleague", "coworker", "work"].includes(normalized)) {
+        return "dongnghiep";
+      }
+      return "default";
+    }
+
+    function applyWishProfile(profile) {
+      wishes = [...profile.wishes];
+
+      if (subtitleText) subtitleText.textContent = profile.subtitle;
+      if (dynamicWish) dynamicWish.textContent = profile.initialWish;
+      if (fromText) fromText.textContent = profile.from;
+
+      if (poemList) {
+        poemList.textContent = "";
+        profile.poem.forEach((line) => {
+          const li = document.createElement("li");
+          li.textContent = line;
+          poemList.appendChild(li);
+        });
+      }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const wishType = resolveWishType(params.get("type"));
+    applyWishProfile(wishProfiles[wishType] || wishProfiles.default);
+
+    requestAnimationFrame(() => {
+      document.body.classList.add("animate-in");
+    });
+
+    async function tryPlayMusic() {
+      if (!bgMusic) return false;
+      try {
+        bgMusic.volume = 0.55;
+        await bgMusic.play();
+        return true;
+      } catch {
+        console.warn("Autoplay was blocked or file is missing: assets/van-su-nhu-y.mp3");
+        return false;
+      }
+    }
+
+    function randomWish() {
+      if (!wishes.length) return;
+      const text = wishes[Math.floor(Math.random() * wishes.length)];
+      dynamicWish.classList.add("pop");
+      dynamicWish.textContent = text;
+
+      if (!reduceMotion && wishBox) {
+        wishBox.classList.remove("wow");
+        // Force reflow so the animation restarts on each click.
+        void wishBox.offsetWidth;
+        wishBox.classList.add("wow");
+      }
+
+      if (!reduceMotion) {
+        const rect = card.getBoundingClientRect();
+        const x = rect.left + rect.width * (0.25 + Math.random() * 0.5);
+        const y = rect.top + rect.height * (0.14 + Math.random() * 0.22);
+        launchFirework(x, y, 1.15);
+      }
+
+      setTimeout(() => dynamicWish.classList.remove("pop"), 180);
+      if (wishBox) {
+        setTimeout(() => wishBox.classList.remove("wow"), 500);
+      }
+    }
+
+    wishBtn.addEventListener("click", randomWish);
+
+    if (bgMusic) {
+      // Try autoplay immediately and again after full load.
+      tryPlayMusic();
+      window.addEventListener("load", () => {
+        if (bgMusic.paused) tryPlayMusic();
+      });
+
+      // Browsers may block autoplay with sound until user interacts.
+      const unlockMusic = () => {
+        if (bgMusic.paused) tryPlayMusic();
+      };
+      window.addEventListener("pointerdown", unlockMusic, { once: true });
+      window.addEventListener("keydown", unlockMusic, { once: true });
+      window.addEventListener("touchstart", unlockMusic, { once: true });
+    }
+
+    function createPetal() {
+      const petal = document.createElement("span");
+      petal.className = "petal";
+      petal.style.left = `${Math.random() * 100}vw`;
+      petal.style.setProperty("--drift", `${(Math.random() - 0.5) * 190}px`);
+      const size = 8 + Math.random() * 8;
+      petal.style.width = `${size}px`;
+      petal.style.height = `${size}px`;
+      petal.style.animationDuration = `${7 + Math.random() * 6}s`;
+      petal.style.animationDelay = `${Math.random() * 1.2}s`;
+      petalsWrap.appendChild(petal);
+      petal.addEventListener("animationend", () => petal.remove());
+    }
+
+    function applyTilt(clientX, clientY) {
+      const rect = scene.getBoundingClientRect();
+      const px = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
+      const py = Math.min(Math.max((clientY - rect.top) / rect.height, 0), 1);
+      const max = 10;
+      const ry = (px - 0.5) * max * 2;
+      const rx = (0.5 - py) * max * 2;
+
+      card.style.setProperty("--rx", `${rx.toFixed(2)}deg`);
+      card.style.setProperty("--ry", `${ry.toFixed(2)}deg`);
+      card.style.setProperty("--mx", `${(px * 100).toFixed(2)}%`);
+      card.style.setProperty("--my", `${(py * 100).toFixed(2)}%`);
+      card.style.setProperty("--lift", "-3px");
+    }
+
+    function resetTilt() {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--mx", "50%");
+      card.style.setProperty("--my", "50%");
+      card.style.setProperty("--lift", "0px");
+    }
+
+    function resizeFireworks() {
+      if (!fireCtx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      fwWidth = window.innerWidth;
+      fwHeight = window.innerHeight;
+      fireCanvas.width = Math.max(1, Math.floor(fwWidth * dpr));
+      fireCanvas.height = Math.max(1, Math.floor(fwHeight * dpr));
+      fireCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function launchFirework(x, y, power = 1) {
+      if (!fireCtx) return;
+      const count = Math.floor((58 + Math.random() * 36) * power);
+      const hueBase = 22 + Math.random() * 55;
+
+      for (let i = 0; i < count; i += 1) {
+        const angle = (Math.PI * 2 * i) / count + Math.random() * 0.24;
+        const speed = (1.1 + Math.random() * 4.2) * power;
+        sparks.push({
+          x,
+          y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - 0.95,
+          drag: 0.982 + Math.random() * 0.01,
+          gravity: 0.035 + Math.random() * 0.018,
+          life: 0,
+          ttl: 48 + Math.random() * 38,
+          size: 1 + Math.random() * 2.2,
+          hue: (hueBase + Math.random() * 70) % 360
+        });
+      }
+
+      if (sparks.length > 1200) sparks.splice(0, sparks.length - 1200);
+    }
+
+    function renderFireworks(timestamp) {
+      if (!fireCtx) return;
+      fireCtx.clearRect(0, 0, fwWidth, fwHeight);
+      fireCtx.globalCompositeOperation = "lighter";
+
+      for (let i = sparks.length - 1; i >= 0; i -= 1) {
+        const spark = sparks[i];
+        spark.life += 1;
+        spark.x += spark.vx;
+        spark.y += spark.vy;
+        spark.vx *= spark.drag;
+        spark.vy = spark.vy * spark.drag + spark.gravity;
+
+        const alpha = Math.max(0, 1 - spark.life / spark.ttl);
+        if (alpha <= 0 || spark.y > fwHeight + 30) {
+          sparks.splice(i, 1);
+          continue;
+        }
+
+        fireCtx.fillStyle = `hsla(${spark.hue}, 100%, 65%, ${alpha})`;
+        fireCtx.beginPath();
+        fireCtx.arc(spark.x, spark.y, spark.size * alpha + 0.7, 0, Math.PI * 2);
+        fireCtx.fill();
+      }
+
+      if (timestamp >= nextAutoBurst) {
+        const margin = Math.max(60, fwWidth * 0.08);
+        const x = margin + Math.random() * Math.max(1, fwWidth - margin * 2);
+        const y = 68 + Math.random() * Math.max(40, fwHeight * 0.35);
+        launchFirework(x, y, 0.95 + Math.random() * 0.45);
+        nextAutoBurst = timestamp + 900 + Math.random() * 1200;
+      }
+
+      requestAnimationFrame(renderFireworks);
+    }
+
+    if (!reduceMotion) {
+      scene.addEventListener("pointermove", (event) => {
+        applyTilt(event.clientX, event.clientY);
+      });
+
+      scene.addEventListener("pointerleave", resetTilt);
+      scene.addEventListener("pointerdown", (event) => {
+        card.style.setProperty("--lift", "-6px");
+        launchFirework(event.clientX, event.clientY, 0.55);
+      });
+      scene.addEventListener("pointerup", () => {
+        card.style.setProperty("--lift", "-3px");
+      });
+
+      scene.addEventListener("touchmove", (event) => {
+        const touch = event.touches[0];
+        if (touch) applyTilt(touch.clientX, touch.clientY);
+      }, { passive: true });
+
+      scene.addEventListener("touchend", resetTilt);
+    }
+
+    if (!reduceMotion) {
+      for (let i = 0; i < 14; i += 1) createPetal();
+      setInterval(createPetal, 760);
+    }
+
+    if (!reduceMotion && fireCtx) {
+      resizeFireworks();
+      window.addEventListener("resize", resizeFireworks);
+      setTimeout(() => {
+        const centerX = window.innerWidth / 2;
+        launchFirework(centerX - 120, window.innerHeight * 0.22, 1.14);
+        launchFirework(centerX + 120, window.innerHeight * 0.24, 1.1);
+      }, 620);
+      requestAnimationFrame(renderFireworks);
+    }
+  </script>
+</body>
+</html>
